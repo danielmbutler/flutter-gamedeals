@@ -1,21 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:first_app/screens/news_article_detai_screen.dart';
-import 'package:first_app/viewmodels/news_article_view_model.dart';
-import 'package:first_app/widgets/circle_image.dart';
+import 'package:first_app/screens/game_detail_screen.dart';
+import 'package:first_app/viewmodels/game_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class NewsGrid extends StatelessWidget {
-  final List<NewsArticleViewModel> articles;
+class GamesList extends StatelessWidget {
+  final List<GameViewModel> games;
 
-  static const String fakeImgUrl =
-      "https://e3.365dm.com/21/11/768x432/skynews-breaking-sky-news_5597052.jpg?20211127140342";
+  GamesList({required this.games});
 
-  NewsGrid({required this.articles});
-
-  void _showArticleDetails(context,article){
+  void _showGameDetails(context,game){
     Navigator.push(context, MaterialPageRoute(builder: (_) {
-      return NewsArticleDetailScreen(article: article,);
+      return GameDetailScreen(game: game,);
     }));
   }
 
@@ -26,22 +22,22 @@ class NewsGrid extends StatelessWidget {
         crossAxisCount: 2,
       ),
       itemBuilder: (context, index) {
-        var article = articles[index];
-        var image = article.imageUrl ?? fakeImgUrl;
+        var game = games[index];
+        var image = game.imageUrl;
 
         return GestureDetector(
           onTap: () {
-            _showArticleDetails(context, article);
+            _showGameDetails(context, game);
           },
           child: GridTile(
               child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-            child: CircleImage(image),
+            child: image != null ? CachedNetworkImage(imageUrl: image,) : null,
             ),
             footer: Container(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child:  Text(
-                article.title,
+                game.title,
                 style: TextStyle(fontWeight: FontWeight.bold),
                 maxLines: 1,
               ),
@@ -50,7 +46,7 @@ class NewsGrid extends StatelessWidget {
         )
         ;
       },
-      itemCount: articles.length,
+      itemCount: games.length,
     );
   }
 }

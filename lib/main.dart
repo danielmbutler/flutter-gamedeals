@@ -1,5 +1,5 @@
-import 'package:first_app/screens/news_screen.dart';
-import 'package:first_app/viewmodels/news_article_list_view_model.dart';
+import 'package:first_app/screens/games_screen.dart';
+import 'package:first_app/viewmodels/games_list_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter News App',
+      title: 'Flutter Game Deals',
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xfffefdfd),
         appBarTheme: const AppBarTheme(
@@ -33,9 +33,9 @@ class MyApp extends StatelessWidget {
       ),
       home: MultiProvider(providers: [
         ChangeNotifierProvider(
-          create: (_) => NewsArticleListViewModel(),
+          create: (_) => GamesListViewModel(),
         ),
-      ], child: NewsScreen()),
+      ], child: GamesScreen()),
     );
   }
 }

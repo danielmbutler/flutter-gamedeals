@@ -1,12 +1,12 @@
-import 'package:first_app/viewmodels/news_article_view_model.dart';
-import 'package:first_app/widgets/circle_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:first_app/viewmodels/game_view_model.dart';
 import 'package:flutter/material.dart';
 
-class NewsArticleDetailScreen extends StatelessWidget {
+class GameDetailScreen extends StatelessWidget {
 
-  final NewsArticleViewModel article;
+  final GameViewModel game;
 
-  NewsArticleDetailScreen({required this.article});
+  GameDetailScreen({required this.game});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class NewsArticleDetailScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    article.author ?? 'Undefined',
+                    game.price ?? 'Undefined',
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       color: Colors.black,
@@ -74,7 +74,7 @@ class NewsArticleDetailScreen extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  this.article.title,
+                  this.game.title,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
@@ -85,8 +85,8 @@ class NewsArticleDetailScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  this.article.publishedAt,
-                  style: TextStyle(
+                  this.game.url ?? "No Deal Found",
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.grey,
                   ),
@@ -96,19 +96,12 @@ class NewsArticleDetailScreen extends StatelessWidget {
                 ),
                 Container(
                   height: 200,
-                  child: CircleImage(
-                    article.imageUrl ?? ""
+                  child: CachedNetworkImage(
+                    imageUrl: game.imageUrl ?? "",
                   ),
                 ),
                 SizedBox(
                   height: 30,
-                ),
-                Text(
-                  this.article.description ?? "No Contents",
-                  style: TextStyle(
-                    fontSize: 16,
-                    wordSpacing: 3,
-                  ),
                 ),
 
               ],
