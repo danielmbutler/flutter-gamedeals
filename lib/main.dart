@@ -1,4 +1,4 @@
-import 'package:first_app/screens/games_screen.dart';
+import 'package:first_app/ui/screens/games_screen.dart';
 import 'package:first_app/viewmodels/games_list_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

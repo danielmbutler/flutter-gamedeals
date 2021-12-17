@@ -1,6 +1,6 @@
 
 import 'package:first_app/models/game.dart';
-import 'package:first_app/service/api_service.dart';
+import 'package:first_app/api/game_api.dart';
 import 'package:first_app/viewmodels/game_view_model.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -16,7 +16,7 @@ class GamesListViewModel with ChangeNotifier {
 
   void searchGamesByTitle(String gameTitle) async {
     this.loadingStatus = LoadingStatus.searching;
-    //notifyListeners
+    notifyListeners();
 
     List<Game> games =
     await ApiService().searchGamesList(gameTitle);
@@ -31,7 +31,7 @@ class GamesListViewModel with ChangeNotifier {
       this.loadingStatus = LoadingStatus.completed;
     }
 
-    // notify listners
+    notifyListeners();
 
   }
 
