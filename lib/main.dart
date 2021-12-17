@@ -18,17 +18,17 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Game Deals',
       theme: ThemeData(
         scaffoldBackgroundColor: Color(0xfffefdfd),
-        appBarTheme: const AppBarTheme(
-          color: Color(0xfffefdfd),
-          elevation: 0,
-          textTheme: TextTheme(
-            headline1: TextStyle(
+        appBarTheme:  const AppBarTheme(
+            color: Color(0xfffefdfd),
+            elevation: 0,
+            textTheme: TextTheme(
+                headline1: TextStyle(
+                  color: Colors.black,
+                )
+            ),
+            iconTheme: IconThemeData(
               color: Colors.black,
             )
-          ),
-          iconTheme: IconThemeData(
-            color: Colors.black,
-          )
         )
       ),
       home: MultiProvider(providers: [
