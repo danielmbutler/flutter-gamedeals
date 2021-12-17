@@ -10,8 +10,9 @@ class GamesScreen extends StatefulWidget {
   _GamesScreenState createState() => _GamesScreenState();
 }
 
-class _GamesScreenState extends State<GamesScreen> {
 
+
+class _GamesScreenState extends State<GamesScreen> {
 
   void searchGames( String searchString) {
     Provider.of<GamesListViewModel>(context, listen: false)

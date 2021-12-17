@@ -1,7 +1,7 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+var lastSearch = "";
 
 class SearchBar extends StatefulWidget {
   final Function buttonHandler;
@@ -14,10 +14,11 @@ class SearchBar extends StatefulWidget {
 }
 
 class _SearchBarState extends State<SearchBar> {
-  final Function aFunction;
+  final Function searchFunction;
+
   bool _isSearching = false;
 
-  _SearchBarState(this.aFunction);
+  _SearchBarState(this.searchFunction);
 
 
 
@@ -30,8 +31,17 @@ class _SearchBarState extends State<SearchBar> {
   }
 
 
+  void search (String searchString){
+    widget.buttonHandler(searchString);
+    lastSearch = searchString;
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
+
+    debugPrint('search: ${lastSearch}');
 
   var searchString = "";
   TextEditingController controller = TextEditingController();
@@ -40,7 +50,9 @@ class _SearchBarState extends State<SearchBar> {
       searchString = controller.text.toString();
     }
   });
-
+  // set textfield text to last search and move cursor to end
+  controller.text = lastSearch;
+  controller.selection = TextSelection.fromPosition(TextPosition(offset: controller.text.length));
 
     return Container(
         margin: const EdgeInsets.only(left: 20, right: 20),
@@ -63,9 +75,13 @@ class _SearchBarState extends State<SearchBar> {
               suffixIcon: (_isSearching
                   ? IconButton(
                     icon: Icon(Icons.search_sharp),
-                onPressed: () => widget.buttonHandler(searchString) ,): null),
+                onPressed: () => {
+                      search(searchString),
+                } ,): null),
           ),
           style: const TextStyle(color: Colors.black, fontSize: 16.0),
         ));
   }
+
+
 }

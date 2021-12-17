@@ -1,4 +1,3 @@
-
 import 'package:first_app/models/game.dart';
 import 'package:first_app/api/game_api.dart';
 import 'package:first_app/viewmodels/game_view_model.dart';
@@ -14,7 +13,9 @@ class GamesListViewModel with ChangeNotifier {
   LoadingStatus loadingStatus = LoadingStatus.empty;
   List<GameViewModel> games = <GameViewModel>[];
 
+
   void searchGamesByTitle(String gameTitle) async {
+
     this.loadingStatus = LoadingStatus.searching;
     notifyListeners();
 

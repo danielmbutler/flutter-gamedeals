@@ -33,8 +33,8 @@ class GamesList extends StatelessWidget {
                    width: 50,
                ),
               title: Text(game.title),
-              subtitle: Text(game.price.toString()),
-              trailing: Icon(Icons.more_vert),
+              subtitle: Text('\$' + game.price.toString()),
+              trailing: Icon(Icons.arrow_forward_ios),
               onTap: () {
                 _showGameDetails(context, game);
               },
