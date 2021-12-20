@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:first_app/services/database_handler.dart';
 import 'package:first_app/ui/screens/game_detail_screen.dart';
 import 'package:first_app/utils/constants.dart';
 import 'package:first_app/viewmodels/game_view_model.dart';
@@ -7,13 +8,18 @@ import 'package:flutter/material.dart';
 
 class GamesList extends StatelessWidget {
   final List<GameViewModel> games;
+  final DatabaseHandler _databaseHandler = DatabaseHandler.getInstance();
 
   GamesList({required this.games});
 
-  void _showGameDetails(context, game) {
-    Navigator.push(context, MaterialPageRoute(builder: (_) {
-      return GameDetailScreen(game: game,);
-    }));
+  Future<void> _showGameDetails(context, GameViewModel game) async {
+    bool isSaved = await _databaseHandler.isGameSaved(game.gameId);
+
+    if(isSaved) game.setSaved();
+
+      Navigator.push(context, MaterialPageRoute(builder: (_) {
+        return GameDetailScreen(game: game);
+      }));
   }
 
   @override

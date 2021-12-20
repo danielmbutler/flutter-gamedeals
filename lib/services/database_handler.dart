@@ -45,6 +45,25 @@ class DatabaseHandler {
     return result;
   }
 
+  Future<bool> isGameSaved(String gameId) async{
+    final Database db = await initializeDB();
+    List<String> column = ["isSaved"];
+    final List<Map<String, Object?>> result = await db.query(
+        'games',
+        columns: column,
+        where: "gameID = $gameId",
+        limit: 1
+    );
+
+    var game = result.map((e) => Game.fromMap(e)).toList();
+
+    if(game[0].saved) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   Future<List<Game>> retrieveGames() async {
     final Database db = await initializeDB();
     final List<Map<String, Object?>> queryResult = await db.query('games');

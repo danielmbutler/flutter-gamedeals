@@ -11,6 +11,10 @@ class GameViewModel {
     return game.external ?? "not found";
   }
 
+  String get gameId {
+    return game.gameId ?? "not found";
+  }
+
   String? get price {
     return game.cheapest ?? "price not found";
   }
@@ -25,6 +29,10 @@ class GameViewModel {
 
   bool get saved {
     return game.saved;
+  }
+
+  void setSaved() {
+    game.saved = true;
   }
 
 }

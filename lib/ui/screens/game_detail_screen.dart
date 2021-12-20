@@ -12,6 +12,7 @@ class GameDetailScreen extends StatelessWidget {
 
   GameDetailScreen({required this.game});
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +54,9 @@ class GameDetailScreen extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
         ),
         const Padding(padding: EdgeInsets.only(top: 20)),
-        CustomButton(openBrowserTab, 'GET DEAL ', Icons.open_in_browser, Colors.green),
+        CustomButton(openBrowserTab, 'GET DEAL ', Icons.open_in_browser, Colors.green, null),
         const Padding(padding: EdgeInsets.only(top: 20)),
-        CustomButton(saveGame, game.saved ? "Added " : "Add to favourites ", Icons.favorite, Colors.grey)
+        CustomButton(saveGame, game.saved ? "Added " : "Add to favourites ", Icons.favorite, Colors.grey, "Added ")
       ],
     );
   }
@@ -66,6 +67,8 @@ class GameDetailScreen extends StatelessWidget {
   }
 
   saveGame() async {
-    _databaseHandler.insertGame(game.game);
+    if(!game.saved){
+      _databaseHandler.insertGame(game.game);
+    }
   }
 }
