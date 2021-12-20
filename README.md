@@ -6,6 +6,12 @@
 * Game Search
 * Delete and Save Deals
 
+
+## Demo
+<p align="center">
+  <img src="https://github.com/danielmbutler/flutter-gamedeals/blob/main/assets/delete%20demo.gif" width="250" >
+</p>
+
 ## Resources
 * [Using Sqlite in Flutter](https://petercoding.com/flutter/2021/03/21/using-sqlite-in-flutter/)
 * [MVVM Flutter News App](https://www.youtube.com/watch?v=7n2QprcdHMA)
