@@ -57,7 +57,7 @@ class DatabaseHandler {
 
     var game = result.map((e) => Game.fromMap(e)).toList();
 
-    if(game[0].saved) {
+    if(game.isNotEmpty && game[0].saved) {
       return true;
     } else {
       return false;
