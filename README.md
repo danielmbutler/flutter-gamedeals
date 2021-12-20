@@ -10,6 +10,7 @@
 ## Demo
 <p align="center">
   <img src="https://github.com/danielmbutler/flutter-gamedeals/blob/main/assets/delete%20demo.gif" width="250" >
+  <img src=" https://github.com/danielmbutler/flutter-gamedeals/blob/main/assets/demo%20flutter.gif" width="250" >
 </p>
 
 ## Resources
