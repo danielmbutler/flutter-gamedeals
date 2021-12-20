@@ -55,13 +55,9 @@ class DatabaseHandler {
         limit: 1
     );
 
-    var game = result.map((e) => Game.fromMap(e)).toList();
+    var gameList = result.map((e) => Game.fromMap(e)).toList();
 
-    if(game.isNotEmpty && game[0].saved) {
-      return true;
-    } else {
-      return false;
-    }
+    return gameList.isNotEmpty && gameList[0].saved ? true : false;
   }
 
   // Delete
