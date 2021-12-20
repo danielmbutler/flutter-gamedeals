@@ -64,6 +64,16 @@ class DatabaseHandler {
     }
   }
 
+  // Delete
+   Future<void> deleteGame(String gameId) async {
+    final db = await initializeDB();
+    try {
+      await db.delete("games", where: "gameID = ?", whereArgs: [gameId]);
+    } catch (err) {
+      debugPrint("Something went wrong when deleting game: $err");
+    }
+  }
+
   Future<List<Game>> retrieveGames() async {
     final Database db = await initializeDB();
     final List<Map<String, Object?>> queryResult = await db.query('games');

@@ -28,6 +28,7 @@ class _GamesScreenState extends State<GamesScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: GamesList(
             games: vs.games,
+            isSavedList: false
           ),
         );
       case LoadingStatus.empty:

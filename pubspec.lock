@@ -284,6 +284,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.1"
+  rflutter_alert:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "701d0c7550ed9c47664acc25c6524f81f4251ec0"
+      url: "git://github.com/RatelHub/rflutter_alert.git"
+    source: git
+    version: "2.0.4"
   rxdart:
     dependency: transitive
     description:

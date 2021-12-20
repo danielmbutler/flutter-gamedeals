@@ -41,6 +41,8 @@ dependencies:
   flutter_web_browser: ^0.16.0
   path: ^1.8.0
   sqflite: ^2.0.0+4
+  rflutter_alert:
+    git: git://github.com/RatelHub/rflutter_alert.git
 
 dev_dependencies:
   flutter_test:

@@ -18,6 +18,7 @@ class SavedGamesScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: GamesList(
           games: gamesList,
+          isSavedList: true,
         ),
       );
     }
@@ -44,4 +45,5 @@ class SavedGamesScreen extends StatelessWidget {
       ),
     );
   }
+
 }
