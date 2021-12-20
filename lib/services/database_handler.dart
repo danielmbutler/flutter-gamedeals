@@ -23,7 +23,7 @@ class DatabaseHandler {
                 "internalName TEXT NOT NULL, "
                 "thumb TEXT NOT NULL, "
                 "gameID TEXT NOT NULL, "
-                "steamAppID TEXT NOT NULL, "
+                "steamAppID , "
                 "cheapest TEXT NOT NULL, "
                 "cheapestDealID TEXT NOT NULL, "
                 "isSaved INTEGER NOT NULL)",
@@ -55,9 +55,13 @@ class DatabaseHandler {
         limit: 1
     );
 
-    var gameList = result.map((e) => Game.fromMap(e)).toList();
+    var game = result.map((e) => Game.fromMap(e)).toList();
 
-    return gameList.isNotEmpty && gameList[0].saved ? true : false;
+    if(game.isNotEmpty && game[0].saved) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   // Delete
